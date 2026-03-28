@@ -1,0 +1,12 @@
+{
+  "name": "lab3-app",
+  "version": "1.0.0",
+  "description": "Basic Node.js app",
+  "main": "node.js",
+  "scripts": {
+    "start": "node node.js"
+  },
+  "dependencies": {
+    "http-server": "^14.1.1"
+  }
+}

@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Velocity Motors - Luxury Car Showroom</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+
+<style>
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:'Poppins',sans-serif;
+}
+
+body{
+    min-height:100vh;
+    background: linear-gradient(135deg,#0f2027,#203a43,#2c5364);
+    color:white;
+}
+
+/* NAVBAR */
+
+nav{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    padding:20px 60px;
+    backdrop-filter: blur(10px);
+    background: rgba(255,255,255,0.05);
+    position:sticky;
+    top:0;
+}
+
+nav h2{
+    font-weight:700;
+    letter-spacing:2px;
+}
+
+nav ul{
+    list-style:none;
+    display:flex;
+    gap:30px;
+}
+
+nav ul li a{
+    text-decoration:none;
+    color:white;
+    font-weight:400;
+    transition:0.3s;
+}
+
+nav ul li a:hover{
+    color:#00f5ff;
+}
+
+/* HERO SECTION */
+
+.hero{
+    height:90vh;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    flex-direction:column;
+    text-align:center;
+    padding:20px;
+    animation: fadeIn 1.5s ease-in;
+}
+
+.hero h1{
+    font-size:3.5rem;
+    margin-bottom:20px;
+    background: linear-gradient(90deg,#00f5ff,#00ffcc);
+    -webkit-background-clip:text;
+    -webkit-text-fill-color:transparent;
+}
+
+.hero p{
+    font-size:1.2rem;
+    opacity:0.8;
+    margin-bottom:30px;
+}
+
+.btn{
+    padding:12px 30px;
+    border-radius:30px;
+    border:none;
+    background:linear-gradient(90deg,#00f5ff,#00ffcc);
+    color:#000;
+    font-weight:600;
+    cursor:pointer;
+    transition:0.3s;
+}
+
+.btn:hover{
+    transform:scale(1.1);
+}
+
+/* CAR SECTION */
+
+.cars{
+    padding:60px 40px;
+}
+
+.section-title{
+    text-align:center;
+    margin-bottom:50px;
+    font-size:2.5rem;
+}
+
+.car-container{
+    display:flex;
+    flex-wrap:wrap;
+    justify-content:center;
+    gap:40px;
+}
+
+.car-card{
+    width:300px;
+    padding:20px;
+    border-radius:20px;
+    backdrop-filter:blur(15px);
+    background:rgba(255,255,255,0.08);
+    box-shadow:0 8px 32px rgba(0,0,0,0.37);
+    transition:0.4s;
+    animation: slideUp 1s ease forwards;
+}
+
+.car-card:hover{
+    transform:translateY(-15px) scale(1.05);
+}
+
+.car-card img{
+    width:100%;
+    border-radius:15px;
+    margin-bottom:15px;
+}
+
+.car-card h3{
+    margin-bottom:10px;
+}
+
+.car-card p{
+    font-size:0.9rem;
+    opacity:0.8;
+    margin-bottom:15px;
+}
+
+/* FOOTER */
+
+footer{
+    text-align:center;
+    padding:20px;
+    background:rgba(255,255,255,0.05);
+    margin-top:40px;
+}
+
+/* ANIMATIONS */
+
+@keyframes fadeIn{
+    from{opacity:0;transform:translateY(30px);}
+    to{opacity:1;transform:translateY(0);}
+}
+
+@keyframes slideUp{
+    from{opacity:0;transform:translateY(50px);}
+    to{opacity:1;transform:translateY(0);}
+}
+
+@media(max-width:768px){
+    nav{
+        padding:20px;
+        flex-direction:column;
+        gap:15px;
+    }
+}
+
+</style>
+</head>
+
+<body>
+
+<nav>
+    <h2>Velocity Motors</h2>
+    <ul>
+        <li><a href="#">Home</a></li>
+        <li><a href="#">Inventory</a></li>
+        <li><a href="#">Luxury</a></li>
+        <li><a href="#">Contact</a></li>
+    </ul>
+</nav>
+
+<section class="hero">
+    <h1>Experience Future Driving</h1>
+    <p>Luxury. Performance. Innovation.</p>
+    <button class="btn">Explore Cars</button>
+</section>
+
+<section class="cars">
+    <h2 class="section-title">Featured Collection</h2>
+
+    <div class="car-container">
+
+        <div class="car-card">
+            <img src="https://images.unsplash.com/photo-1549921296-3a6bdb6c4c2f" alt="BMW">
+            <h3>BMW X7</h3>
+            <p>Ultimate luxury SUV with unmatched performance and comfort.</p>
+            <button class="btn">View Details</button>
+        </div>
+
+        <div class="car-card">
+            <img src="https://images.unsplash.com/photo-1552519507-da3b142c6e3d" alt="Audi">
+            <h3>Audi RS7</h3>
+            <p>Sporty elegance combined with cutting-edge technology.</p>
+            <button class="btn">View Details</button>
+        </div>
+
+        <div class="car-card">
+            <img src="https://images.unsplash.com/photo-1583121274602-3e2820c69888" alt="Mercedes">
+            <h3>Mercedes AMG</h3>
+            <p>High-performance engineering meets refined luxury.</p>
+            <button class="btn">View Details</button>
+        </div>
+
+    </div>
+</section>
+
+<footer>
+    © 2026 Velocity Motors | Designed with Modern UI
+</footer>
+
+</body>
+</html>

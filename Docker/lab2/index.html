@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Velocity Garage - Bikes & Cars</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+
+<style>
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:'Poppins',sans-serif;
+}
+
+body{
+    background: linear-gradient(135deg,#0f2027,#203a43,#2c5364);
+    color:white;
+}
+
+/* NAVBAR */
+nav{
+    display:flex;
+    justify-content:space-between;
+    padding:20px 60px;
+    background:rgba(255,255,255,0.08);
+    backdrop-filter:blur(10px);
+}
+
+.logo{
+    font-size:1.5rem;
+    font-weight:700;
+}
+
+.cart{
+    font-weight:600;
+}
+
+/* HERO */
+.hero{
+    text-align:center;
+    padding:80px 20px 40px;
+}
+
+.hero h1{
+    font-size:3rem;
+    background:linear-gradient(90deg,#00f5ff,#00ffcc);
+    -webkit-background-clip:text;
+    -webkit-text-fill-color:transparent;
+}
+
+/* FILTER BUTTONS */
+.filters{
+    text-align:center;
+    margin:30px 0;
+}
+
+.filter-btn{
+    padding:10px 25px;
+    margin:0 10px;
+    border:none;
+    border-radius:30px;
+    cursor:pointer;
+    background:#00f5ff;
+    color:#000;
+    font-weight:600;
+    transition:0.3s;
+}
+
+.filter-btn:hover{
+    transform:scale(1.1);
+}
+
+/* PRODUCTS */
+.products{
+    display:flex;
+    flex-wrap:wrap;
+    justify-content:center;
+    gap:30px;
+    padding:20px 40px 60px;
+}
+
+.card{
+    width:280px;
+    padding:20px;
+    border-radius:20px;
+    background:rgba(255,255,255,0.08);
+    backdrop-filter:blur(15px);
+    transition:0.4s;
+    animation:fadeUp 0.8s ease;
+}
+
+.card:hover{
+    transform:translateY(-10px) scale(1.05);
+}
+
+.card img{
+    width:100%;
+    height:180px;
+    object-fit:cover;
+    border-radius:15px;
+}
+
+.card h3{
+    margin:15px 0 10px;
+}
+
+.price{
+    color:#00f5ff;
+    margin-bottom:10px;
+}
+
+.btn{
+    padding:8px 20px;
+    border:none;
+    border-radius:20px;
+    cursor:pointer;
+    background:linear-gradient(90deg,#00f5ff,#00ffcc);
+    color:#000;
+    font-weight:600;
+    transition:0.3s;
+}
+
+.btn:hover{
+    transform:scale(1.1);
+}
+
+/* MODAL */
+.modal{
+    display:none;
+    position:fixed;
+    top:0;
+    left:0;
+    width:100%;
+    height:100%;
+    background:rgba(0,0,0,0.7);
+    justify-content:center;
+    align-items:center;
+}
+
+.modal-content{
+    background:#1e3c72;
+    padding:30px;
+    border-radius:20px;
+    text-align:center;
+    width:300px;
+}
+
+.close{
+    cursor:pointer;
+    float:right;
+    font-size:20px;
+}
+
+/* ANIMATION */
+@keyframes fadeUp{
+    from{opacity:0; transform:translateY(40px);}
+    to{opacity:1; transform:translateY(0);}
+}
+
+@media(max-width:768px){
+    nav{
+        flex-direction:column;
+        gap:10px;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<nav>
+    <div class="logo">Velocity Garage</div>
+    <div class="cart">Cart: <span id="cartCount">0</span></div>
+</nav>
+
+<section class="hero">
+    <h1>Premium Cars & Bikes Collection</h1>
+</section>
+
+<div class="filters">
+    <button class="filter-btn" onclick="filterProducts('all')">All</button>
+    <button class="filter-btn" onclick="filterProducts('car')">Cars</button>
+    <button class="filter-btn" onclick="filterProducts('bike')">Bikes</button>
+</div>
+
+<section class="products" id="productList">
+
+    <!-- Cars -->
+    <div class="card car">
+        <img src="https://images.unsplash.com/photo-1549921296-3a6bdb6c4c2f">
+        <h3>BMW X5</h3>
+        <div class="price">$75,000</div>
+        <button class="btn" onclick="addToCart()">Add to Cart</button>
+        <button class="btn" onclick="showDetails('BMW X5 Luxury SUV')">Details</button>
+    </div>
+
+    <div class="card car">
+        <img src="https://images.unsplash.com/photo-1552519507-da3b142c6e3d">
+        <h3>Audi R8</h3>
+        <div class="price">$140,000</div>
+        <button class="btn" onclick="addToCart()">Add to Cart</button>
+        <button class="btn" onclick="showDetails('Audi R8 Supercar')">Details</button>
+    </div>
+
+    <!-- Bikes -->
+    <div class="card bike">
+        <img src="https://images.unsplash.com/photo-1518655048521-f130df041f66">
+        <h3>Yamaha R1</h3>
+        <div class="price">$18,000</div>
+        <button class="btn" onclick="addToCart()">Add to Cart</button>
+        <button class="btn" onclick="showDetails('Yamaha R1 Sport Bike')">Details</button>
+    </div>
+
+    <div class="card bike">
+        <img src="https://images.unsplash.com/photo-1504215680853-026ed2a45def">
+        <h3>Kawasaki Ninja</h3>
+        <div class="price">$16,500</div>
+        <button class="btn" onclick="addToCart()">Add to Cart</button>
+        <button class="btn" onclick="showDetails('Kawasaki Ninja Performance Bike')">Details</button>
+    </div>
+
+</section>
+
+<!-- MODAL -->
+<div class="modal" id="modal">
+    <div class="modal-content">
+        <span class="close" onclick="closeModal()">✖</span>
+        <p id="modalText"></p>
+    </div>
+</div>
+
+<script>
+let cart = 0;
+
+function addToCart(){
+    cart++;
+    document.getElementById("cartCount").innerText = cart;
+}
+
+function filterProducts(type){
+    let cards = document.querySelectorAll(".card");
+    cards.forEach(card=>{
+        if(type === "all"){
+            card.style.display="block";
+        } else {
+            card.style.display = card.classList.contains(type) ? "block" : "none";
+        }
+    });
+}
+
+function showDetails(text){
+    document.getElementById("modalText").innerText = text;
+    document.getElementById("modal").style.display="flex";
+}
+
+function closeModal(){
+    document.getElementById("modal").style.display="none";
+}
+</script>
+</body>
+</html>
